@@ -187,7 +187,7 @@ public class FileManagerService extends PrepService {
      * creates a single output file and the output folder at the beginning
      */
     private void createFile(String pathRaw, String format, String extension, String fileContent) throws IOException {
-        DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern("yyyy-MM-dd_HH-mm-ss");
+        DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern("yyyy-MM-dd_HH-mm");
         LocalDateTime localDateTime = LocalDateTime.now();
         String dirName = format + "_" + localDateTime.format(dateTimeFormatter);
         pathRaw += dirName;

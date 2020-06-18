@@ -75,12 +75,12 @@ public class PrepService {
                 if (!split.equals("image")) {
                     j = splitAbs[i];
                 }
-
                 while (j > 0) {
                     long imageId = annotationsList.get(annoAt).getImage().getId();
 
                     for (int y = annoAt; y < this.annotationsList.size(); y++) {
                         if (!(imageId == annotationsList.get(y).getImage().getId())) {
+                            annoAt = y;
                             break;
                         }
                         annotations.add(annotationsList.get(y));
