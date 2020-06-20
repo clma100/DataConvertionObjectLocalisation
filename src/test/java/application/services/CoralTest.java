@@ -48,6 +48,46 @@ public class CoralTest {
         listImages.clear();
         listCat.clear();
         listAnn.clear();
+        infoLog.clear();
+    }
+
+    @Test
+    public void readCoralAnlodevZweiBilderTest() throws IOException {
+        String path = "src/test/resources/zweiBilder.txt";
+        Assert.assertEquals(0, listImages.size());
+        Assert.assertEquals(0, listCat.size());
+        Assert.assertEquals(0, listAnn.size());
+        coralService.readCoralTxt(path);
+        Assert.assertEquals(2, listImages.size());
+        Assert.assertEquals(8, listCat.size());
+        Assert.assertEquals(42, listAnn.size());
+
+        Assert.assertEquals("2018_0714_112502_024", listImages.get(0).getFileName());
+        Assert.assertEquals("2018_0714_112540_049", listImages.get(1).getFileName());
+    }
+
+    @Test
+    public void readCoralAnlodevBild24Test() throws IOException {
+        String path = "src/test/resources/bild24.txt";
+        Assert.assertEquals(0, listImages.size());
+        Assert.assertEquals(0, listCat.size());
+        Assert.assertEquals(0, listAnn.size());
+        coralService.readCoralTxt(path);
+        Assert.assertEquals(1, listImages.size());
+        Assert.assertEquals(8, listCat.size());
+        Assert.assertEquals(44, listAnn.size());
+
+        Assert.assertEquals(1, listImages.get(0).getId());
+        Assert.assertEquals("2018_0714_112502_024", listImages.get(0).getFileName());
+
+        Assert.assertEquals("c_sponge_barrel", listCat.get(0).getName());
+        Assert.assertEquals("c_soft_coral_gorgonian", listCat.get(1).getName());
+        Assert.assertEquals("c_soft_coral", listCat.get(2).getName());
+        Assert.assertEquals("c_hard_coral_submassive", listCat.get(3).getName());
+        Assert.assertEquals("c_hard_coral_mushroom", listCat.get(4).getName());
+        Assert.assertEquals("c_hard_coral_encrusting", listCat.get(5).getName());
+        Assert.assertEquals("c_hard_coral_boulder", listCat.get(6).getName());
+        Assert.assertEquals("c_hard_coral_branching", listCat.get(7).getName());
     }
 
     @Test
